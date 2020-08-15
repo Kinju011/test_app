@@ -31,7 +31,7 @@ class Api::UsersController < ApplicationController
 		else
 			response = command.errors[:base].first
 		end
-		send_response(response[:status], response[:success], response[:message])
+		send_response(response[:status], response[:success], response[:message], response[:data])
 	end
 
 	private
