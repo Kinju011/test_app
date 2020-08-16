@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+	before_action :authenticated_request!, only: [:index]
 	def index
 		command = UserOperations::GetUserListCommand.call('name')
 		if command.success?
