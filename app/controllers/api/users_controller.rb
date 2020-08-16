@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
 
 	def sign_up
 		required_params = check_required_params([:user])
-		return send_response(403, false, 'Required params missing') unless required_params
+		return send_response(403, false, I18n.t('param_missing')) unless required_params
 		command = UserOperations::AddNewUserCommand.call(user_params)
 		if command.success?
 			response = command.result
@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
 
 	def sign_in
 		required_params = check_required_params([:password, :email])
-		return send_response(403, false, 'Required params missing') unless required_params
+		return send_response(403, false, I18n.t('param_missing')) unless required_params
 
 		command = UserOperations::SignInUser.call(params)
 		if command.success?

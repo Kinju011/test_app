@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   			post :sign_in
   		end
   	end
+
+    resources :deck_dealers
   end
 end

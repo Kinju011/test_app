@@ -8,7 +8,7 @@ module UserOperations
 
 		def call
 			users = User.all
-			return { status: 200, success: true, message: 'Result', data: users }
+			return { status: 200, success: true, message: I18n.t('result'), data: users }
 		rescue => e
 			errors.add(:base, { status: 500, success: false, message: e.message })
 		end
